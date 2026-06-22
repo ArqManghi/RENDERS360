@@ -3,86 +3,227 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renders360 - Tours 360° Premium</title>
+    <title>Renders360 - Tours 360° Premium para Arquitectos</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; color: #333; background: #f9f9f9; }
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; background: white; }
-        h1 { font-size: 2.5em; margin: 20px 0; }
-        h2 { font-size: 1.8em; margin: 30px 0 15px 0; }
-        p { margin: 10px 0; font-size: 1.1em; }
-        .btn { display: inline-block; padding: 15px 30px; background: #000; color: #fff; text-decoration: none; border-radius: 4px; margin-top: 20px; cursor: pointer; border: none; font-size: 1em; }
-        .btn:hover { background: #333; }
-        .section { border-top: 2px solid #eee; padding: 40px 0; }
-        .demo-link { color: #0066cc; text-decoration: none; font-size: 1.1em; }
+        html { scroll-behavior: smooth; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif; line-height: 1.7; color: #1a1a1a; background: #ffffff; }
+        h1 { font-size: 3.5em; font-weight: 700; line-height: 1.2; margin-bottom: 20px; letter-spacing: -0.02em; }
+        h2 { font-size: 2.2em; font-weight: 700; line-height: 1.3; margin-bottom: 30px; letter-spacing: -0.01em; }
+        h3 { font-size: 1.4em; font-weight: 600; margin-bottom: 15px; }
+        p { font-size: 1.1em; line-height: 1.8; color: #444; }
+        .subtitle { font-size: 1.3em; color: #666; font-weight: 400; margin-bottom: 15px; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 40px; }
+        .hero { padding: 120px 40px; background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%); text-align: left; }
+        .hero h1 { font-size: 4em; margin-bottom: 25px; background: linear-gradient(120deg, #000 0%, #333 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .hero .subtitle { font-size: 1.5em; max-width: 600px; margin-bottom: 40px; color: #555; font-weight: 400; }
+        .cta-group { display: flex; gap: 20px; margin-bottom: 60px; flex-wrap: wrap; }
+        .btn { display: inline-block; padding: 18px 40px; font-size: 1.05em; font-weight: 600; border-radius: 6px; text-decoration: none; cursor: pointer; border: none; transition: all 0.3s ease; letter-spacing: 0.3px; }
+        .btn-primary { background: #000; color: #fff; }
+        .btn-primary:hover { background: #1a1a1a; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
+        .demo-link { color: #0066cc; text-decoration: none; font-weight: 600; display: inline-block; margin-bottom: 60px; font-size: 1.1em; }
         .demo-link:hover { text-decoration: underline; }
-        ul { margin-left: 30px; }
-        li { margin: 8px 0; }
+        .section { padding: 100px 40px; border-bottom: 1px solid #e8e8e8; }
+        .section:last-child { border-bottom: none; }
+        .problems { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 50px; }
+        .problem-block, .solution-block { padding: 30px; border-radius: 8px; }
+        .problem-block { background: #fef2f2; border-left: 4px solid #dc2626; }
+        .solution-block { background: #f0fdf4; border-left: 4px solid #16a34a; }
+        .problem-block h3, .solution-block h3 { margin-bottom: 20px; }
+        .problem-block p, .solution-block p { font-size: 1em; line-height: 1.7; }
+        .problem-list, .solution-list { margin-top: 15px; }
+        .problem-list li, .solution-list li { margin: 12px 0; margin-left: 25px; font-size: 1em; }
+        .problem-list li:before { content: "✗ "; color: #dc2626; font-weight: bold; margin-left: -25px; margin-right: 8px; }
+        .solution-list li:before { content: "✓ "; color: #16a34a; font-weight: bold; margin-left: -25px; margin-right: 8px; }
+        .services-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; margin-top: 60px; }
+        .service-card { padding: 40px; background: #fafafa; border-radius: 8px; border: 1px solid #e8e8e8; transition: all 0.3s ease; display: flex; flex-direction: column; }
+        .service-card:hover { transform: translateY(-8px); box-shadow: 0 12px 32px rgba(0,0,0,0.08); border-color: #000; }
+        .service-number { font-size: 3em; font-weight: 700; color: #e8e8e8; margin-bottom: 10px; }
+        .service-card h3 { margin-bottom: 20px; font-size: 1.3em; }
+        .service-card p { flex-grow: 1; margin-bottom: 20px; font-size: 0.95em; line-height: 1.7; }
+        .service-price { font-size: 1.4em; font-weight: 700; color: #000; margin-top: 20px; padding-top: 20px; border-top: 1px solid #d8d8d8; }
+        .why-list { margin-top: 40px; }
+        .why-item { padding: 25px; margin-bottom: 20px; background: #f9f9f9; border-radius: 6px; border-left: 4px solid #000; display: flex; gap: 20px; }
+        .why-icon { font-size: 1.8em; flex-shrink: 0; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; }
+        .why-content h4 { font-size: 1.1em; margin-bottom: 8px; font-weight: 600; }
+        .why-content p { font-size: 0.95em; line-height: 1.6; margin: 0; }
+        .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; margin-top: 50px; }
+        .step { text-align: center; }
+        .step-number { font-size: 3em; font-weight: 700; color: #e8e8e8; margin-bottom: 15px; }
+        .step h4 { font-size: 1.05em; font-weight: 600; margin-bottom: 10px; }
+        .step p { font-size: 0.9em; }
+        .cta-final { background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%); color: #fff; padding: 80px 40px; text-align: center; border-radius: 12px; margin: 80px 40px; }
+        .cta-final h2 { color: #fff; margin-bottom: 20px; }
+        .cta-final p { color: #d8d8d8; max-width: 600px; margin: 0 auto 40px; font-size: 1.1em; }
+        .cta-final .btn-primary { background: #fff; color: #000; font-size: 1.1em; padding: 20px 45px; }
+        .cta-final .btn-primary:hover { background: #f0f0f0; }
+        footer { padding: 60px 40px; text-align: center; background: #fafafa; border-top: 1px solid #e8e8e8; }
+        footer p { font-size: 0.95em; color: #666; margin-bottom: 15px; }
+        .contact-links { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
+        .contact-links a { color: #000; text-decoration: none; font-weight: 600; }
+        .contact-links a:hover { text-decoration: underline; }
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            h1 { font-size: 2.2em; }
+            h2 { font-size: 1.6em; }
+            .hero { padding: 60px 20px; }
+            .hero h1 { font-size: 2.5em; }
+            .section { padding: 60px 20px; }
+            .problems { grid-template-columns: 1fr; gap: 30px; }
+            .services-grid { grid-template-columns: 1fr; }
+            .process-steps { grid-template-columns: 1fr 1fr; }
+            .cta-final { margin: 40px 20px; padding: 60px 20px; }
+            .cta-group { flex-direction: column; }
+            .btn { width: 100%; text-align: center; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Renders360</h1>
-        <p style="font-size: 1.3em; color: #666;">Tours 360° de nivel para proyectos que venden</p>
-        
-        <a href="https://arqmanghi.github.io/Casa_Martinez/" class="demo-link">👉 VER DEMO: Casa Martinez</a>
-
-        <div class="section">
-            <h2>¿Qué somos?</h2>
-            <p>Transformamos tus renders en experiencias inmersivas que convencen compradores.</p>
-            <p><strong>No es marketing. Es tecnología de venta.</strong></p>
+    <section class="hero">
+        <div class="container">
+            <h1>Renders360</h1>
+            <p class="subtitle">Tu proyecto en 360°. Tu cliente decide antes de pisar la obra.</p>
+            <div class="cta-group">
+                <a href="https://arqmanghi.github.io/Casa_Martinez/" class="demo-link">👉 VER DEMO EN VIVO</a>
+            </div>
+            <p style="font-size: 1em; color: #888; max-width: 650px;">Transformamos renders arquitectónicos en tours inmersivos que generan decisiones, reducen presenciales innecesarias y crean FOMO entre potenciales compradores.</p>
         </div>
+    </section>
 
-        <div class="section">
-            <h2>Para quién</h2>
-            <ul>
-                <li>Estudios de arquitectura de nivel</li>
-                <li>Desarrolladores inmobiliarios</li>
-                <li>Proyectos residenciales</li>
-                <li>Comercial + institucional</li>
-            </ul>
+    <section class="section">
+        <div class="container">
+            <h2>Para estudios que venden diferente</h2>
+            <p>No es para todos. Es para arquitectos que entienden que la experiencia vende más que las fotos.</p>
+            <div class="problems">
+                <div class="problem-block">
+                    <h3>El problema hoy</h3>
+                    <ul class="problem-list">
+                        <li>Fotos estáticas no impactan</li>
+                        <li>Cada presencial = tiempo perdido</li>
+                        <li>Compradores se arrepienten después</li>
+                        <li>No hay diferencial vs competencia</li>
+                    </ul>
+                </div>
+                <div class="solution-block">
+                    <h3>Con Renders360</h3>
+                    <ul class="solution-list">
+                        <li>Cliente entra a 360°, ya decidió</li>
+                        <li>Presenciales solo para cerrar</li>
+                        <li>Comprador vio exacto lo que compra</li>
+                        <li>Sos el único con esta tecnología</li>
+                    </ul>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="section">
-            <h2>Problemas que resolvemos</h2>
-            <p>❌ Fotos estáticas no venden</p>
-            <p>❌ Compradores ven distinto en presencial</p>
-            <p>❌ Presenciales = pérdida de tiempo</p>
-            <p style="margin-top: 20px;"><strong>✅ Comprador entra a 360°, toma decisión antes</strong></p>
-            <p>✅ Reducís presenciales innecesarias</p>
-            <p>✅ Generás FOMO (otros están viendo tu proyecto)</p>
+    <section class="section">
+        <div class="container">
+            <h2>Por qué los compradores deciden en 360°</h2>
+            <div class="why-list">
+                <div class="why-item">
+                    <div class="why-icon">🎯</div>
+                    <div class="why-content">
+                        <h4>Visualización real</h4>
+                        <p>No imaginan el espacio. Lo recorren. Ven proporciones, luz, circulación exactas.</p>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon">⏱️</div>
+                    <div class="why-content">
+                        <h4>Decisión sin presión</h4>
+                        <p>Desde su casa, en su tiempo. Sin vendedor encima. Decisión más racional.</p>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon">📱</div>
+                    <div class="why-content">
+                        <h4>Compartible en cualquier lado</h4>
+                        <p>Por WhatsApp, email, web. El comprador lleva el proyecto consigo siempre.</p>
+                    </div>
+                </div>
+                <div class="why-item">
+                    <div class="why-icon">📊</div>
+                    <div class="why-content">
+                        <h4>Ves quién mira qué</h4>
+                        <p>Analítica de engagement: cuánto vieron, dónde miraron, cuánto tiempo invirtieron.</p>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="section">
-            <h2>Servicios</h2>
-            <h3 style="font-size: 1.3em; margin-top: 20px;">HOSTING TURBO</h3>
-            <p>Tu traes renders. Nosotros alojamos + hotspots.</p>
-            <p><strong>Desde: $50.000 ARS</strong></p>
-
-            <h3 style="font-size: 1.3em; margin-top: 20px;">RENDER + HOSTING</h3>
-            <p>Tu traes proyecto. Nosotros hacemos renders panorámicos + tour 360° completo.</p>
-            <p><strong>Desde: $250.000 ARS</strong></p>
-
-            <h3 style="font-size: 1.3em; margin-top: 20px;">FULL SERVICE 3D</h3>
-            <p>Proyecto cero. Modelo 3D fotorrealista + renders + tour interactivo.</p>
-            <p><strong>Desde: $600.000 ARS</strong></p>
+    <section class="section">
+        <div class="container">
+            <h2>Tres formas de trabajar</h2>
+            <p style="margin-bottom: 60px; font-size: 1em; color: #666;">Elige según lo que ya tenés y cuánto querés invertir.</p>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-number">1</div>
+                    <h3>Hosting Turbo</h3>
+                    <p>Traes renders finales. Nosotros los transformamos en tour 360° con hotspots interactivos.</p>
+                    <p style="font-size: 0.9em; color: #888;">⏱️ Entrega: 3-5 días</p>
+                    <div class="service-price">Desde $50.000</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">2</div>
+                    <h3>Render + Hosting</h3>
+                    <p>Traes proyecto + referencias. Hacemos renders panorámicos 4K + tour completo con hotspots.</p>
+                    <p style="font-size: 0.9em; color: #888;">⏱️ Entrega: 15-20 días</p>
+                    <div class="service-price">Desde $250.000</div>
+                </div>
+                <div class="service-card">
+                    <div class="service-number">3</div>
+                    <h3>Full Service 3D</h3>
+                    <p>Proyecto cero. Armamos modelo 3D fotorrealista + renders + tour 360° con analytics premium.</p>
+                    <p style="font-size: 0.9em; color: #888;">⏱️ Entrega: 30-45 días</p>
+                    <div class="service-price">Desde $600.000</div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="section">
-            <h2>Agendar consulta</h2>
-            <p>20 min para entender tu proyecto y armar la propuesta justa</p>
-            <a href="https://calendly.com/arqmanghi/30min" class="btn">AGENDAR AHORA</a>
+    <section class="section">
+        <div class="container">
+            <h2>Cuatro pasos. Listo.</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h4>Enviás assets</h4>
+                    <p>Renders, fotos, planos o modelo 3D.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h4>Optimizamos</h4>
+                    <p>Renderizado panorámico + hotspots calibrados.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h4>Alojamos</h4>
+                    <p>Tu dominio o el nuestro. Listo para distribuir.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h4>Analizas</h4>
+                    <p>Ves quién mira, cuándo, cuánto tiempo.</p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="section">
-            <h2>Contacto</h2>
-            <p>📧 <a href="mailto:arqmanghi@gmail.com">arqmanghi@gmail.com</a></p>
-            <p>📞 <a href="https://wa.me/5491162413840">WhatsApp: +54 9 1162413840</a></p>
-        </div>
-
-        <div style="text-align: center; margin-top: 60px; color: #999; font-size: 0.9em; border-top: 1px solid #eee; padding-top: 20px;">
-            <p>Arq. Emanuel Manghi | ARQ.MANGHI Studio</p>
-        </div>
+    <div class="cta-final">
+        <h2>¿Vos también querés que tus clientes decidan a los 20 segundos?</h2>
+        <p>Hablemos 20 minutos sobre tu proyecto. Sin compromiso. Solo validamos si te conviene.</p>
+        <a href="https://calendly.com/emanuelManghi/demo-renders360" class="btn btn-primary">AGENDAR DEMO</a>
     </div>
+
+    <footer>
+        <p style="font-weight: 600; font-size: 1.1em; color: #000;">Renders360</p>
+        <div class="contact-links">
+            <a href="mailto:info@renders360.com.ar">📧 info@renders360.com.ar</a>
+            <a href="https://wa.me/5491162413840">📞 WhatsApp</a>
+        </div>
+        <p style="margin-top: 20px; font-size: 0.85em;">Arq. Emanuel Manghi | ARQ.MANGHI Studio | Buenos Aires</p>
+    </footer>
 </body>
 </html>
