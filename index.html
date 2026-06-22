@@ -57,11 +57,10 @@
         .cta-final p { color: #d8d8d8; max-width: 600px; margin: 0 auto 40px; font-size: 1.1em; }
         .cta-final .btn-primary { background: #fff; color: #000; font-size: 1.1em; padding: 20px 45px; }
         .cta-final .btn-primary:hover { background: #f0f0f0; }
+        input, textarea { font-family: inherit; }
         footer { padding: 60px 40px; text-align: center; background: #fafafa; border-top: 1px solid #e8e8e8; }
         footer p { font-size: 0.95em; color: #666; margin-bottom: 15px; }
-        .contact-links { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
-        .contact-links a { color: #000; text-decoration: none; font-weight: 600; }
-        .contact-links a:hover { text-decoration: underline; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 900px; margin-top: 50px; }
         @media (max-width: 768px) {
             .container { padding: 0 20px; }
             h1 { font-size: 2.2em; }
@@ -75,6 +74,7 @@
             .cta-final { margin: 40px 20px; padding: 60px 20px; }
             .cta-group { flex-direction: column; }
             .btn { width: 100%; text-align: center; }
+            .contact-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -217,13 +217,67 @@
         <a href="https://calendly.com/arqmanghi/30min" class="btn btn-primary">AGENDAR DEMO</a>
     </div>
 
+    <section class="section">
+        <div class="container">
+            <h2>Contacto</h2>
+            <p style="margin-bottom: 50px;">Escribinos y te responderemos en 24hs. O contactanos directo por WhatsApp.</p>
+            
+            <div class="contact-grid">
+                <form id="contactForm" style="display: flex; flex-direction: column; gap: 15px;">
+                    <input type="text" name="name" placeholder="Tu nombre" required style="padding: 14px; font-size: 1em; border: 1px solid #ddd; border-radius: 6px;">
+                    <input type="email" name="email" placeholder="Tu email" required style="padding: 14px; font-size: 1em; border: 1px solid #ddd; border-radius: 6px;">
+                    <input type="tel" name="phone" placeholder="Tu teléfono (opcional)" style="padding: 14px; font-size: 1em; border: 1px solid #ddd; border-radius: 6px;">
+                    <textarea name="message" placeholder="¿En qué podemos ayudarte?" rows="5" required style="padding: 14px; font-size: 1em; border: 1px solid #ddd; border-radius: 6px; resize: vertical;"></textarea>
+                    <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 10px;">ENVIAR</button>
+                    <p id="formMessage" style="font-size: 0.9em; text-align: center; margin: 10px 0 0 0;"></p>
+                </form>
+
+                <div style="display: flex; flex-direction: column; gap: 20px; justify-content: center;">
+                    <div>
+                        <h3 style="margin-bottom: 15px;">O contactanos directo</h3>
+                        <a href="https://wa.me/5491162413840?text=Hola%20Renders360%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20vuestros%20servicios" class="btn btn-primary" style="width: 100%; text-align: center; display: inline-block;">📞 WhatsApp</a>
+                    </div>
+                    <div style="background: #f9f9f9; padding: 25px; border-radius: 8px; border-left: 4px solid #000;">
+                        <p style="font-size: 0.95em; margin: 0;"><strong>Respuesta rápida:</strong> Si es urgente, WhatsApp es tu mejor opción. Contestamos en minutos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <p style="font-weight: 600; font-size: 1.1em; color: #000;">Renders360</p>
-        <div class="contact-links">
-            <a href="mailto:arqmanghi@gmail.com">📧 arqmanghi@gmail.com</a>
-            <a href="https://wa.me/5491162413840">📞 WhatsApp</a>
-        </div>
         <p style="margin-top: 20px; font-size: 0.85em;">Arq. Emanuel Manghi | ARQ.MANGHI Studio | Buenos Aires</p>
     </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            fetch('https://formspree.io/f/xyzgpokp', {
+                method: 'POST',
+                headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    phone: formData.get('phone'),
+                    message: formData.get('message')
+                })
+            }).then(response => {
+                if (response.ok) {
+                    document.getElementById('formMessage').textContent = '✓ Mensaje enviado. Nos ponemos en contacto en 24hs.';
+                    document.getElementById('formMessage').style.color = '#16a34a';
+                    document.getElementById('contactForm').reset();
+                    setTimeout(() => {document.getElementById('formMessage').textContent = '';}, 5000);
+                } else {
+                    document.getElementById('formMessage').textContent = '✗ Error. Intentá por WhatsApp.';
+                    document.getElementById('formMessage').style.color = '#dc2626';
+                }
+            }).catch(() => {
+                document.getElementById('formMessage').textContent = '✗ Error. Intentá por WhatsApp.';
+                document.getElementById('formMessage').style.color = '#dc2626';
+            });
+        });
+    </script>
 </body>
 </html>
