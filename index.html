@@ -223,33 +223,54 @@
         }
 
         .why-card {
-            padding: 40px;
-            background: #f9f9f9;
-            border-radius: 10px;
-            border-left: 4px solid #000;
-            transition: all 0.3s ease;
+            padding: 45px;
+            background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+            border-radius: 14px;
+            border: 2px solid #e8e8e8;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #000 0%, #666 100%);
         }
 
         .why-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            border-left-color: #1a1a1a;
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+            border-color: #000;
+            background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
         }
 
         .why-icon {
-            font-size: 2.5em;
-            margin-bottom: 15px;
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            display: inline-block;
+            padding: 15px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            line-height: 1;
         }
 
         .why-card h4 {
-            margin-bottom: 12px;
-            font-size: 1.2em;
+            margin-bottom: 15px;
+            font-size: 1.25em;
+            font-weight: 700;
+            color: #1a1a1a;
         }
 
         .why-card p {
-            font-size: 0.98em;
+            font-size: 0.99em;
             color: #666;
             margin: 0;
+            line-height: 1.7;
         }
 
         /* SERVICES GRID */
@@ -261,11 +282,11 @@
         }
 
         .service-card {
-            padding: 45px;
+            padding: 50px 40px;
             background: #ffffff;
             border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            transition: all 0.4s ease;
+            border-radius: 14px;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
             position: relative;
             overflow: hidden;
         }
@@ -276,27 +297,48 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 4px;
+            height: 5px;
             background: linear-gradient(90deg, #000 0%, #333 100%);
         }
 
+        .service-card:nth-child(2)::before {
+            background: linear-gradient(90deg, #1a5490 0%, #2e7bb8 100%);
+        }
+
+        .service-card:nth-child(3)::before {
+            background: linear-gradient(90deg, #2d5016 0%, #4a7c3f 100%);
+        }
+
         .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+            transform: translateY(-12px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
             border-color: #000;
         }
 
+        .service-card:nth-child(2):hover {
+            border-color: #2e7bb8;
+        }
+
+        .service-card:nth-child(3):hover {
+            border-color: #4a7c3f;
+        }
+
         .service-number {
-            font-size: 3.5em;
-            font-weight: 800;
-            color: #f0f0f0;
-            margin-bottom: 20px;
+            font-size: 4.5em;
+            font-weight: 900;
+            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 25px;
+            line-height: 1;
         }
 
         .service-card h3 {
             margin-bottom: 20px;
-            font-size: 1.4em;
+            font-size: 1.5em;
             color: #000;
+            font-weight: 700;
         }
 
         .service-card p {
@@ -304,21 +346,33 @@
             line-height: 1.7;
             color: #555;
             flex-grow: 1;
+            margin-bottom: 20px;
         }
 
         .service-time {
             font-size: 0.85em;
             color: #888;
             margin: 20px 0;
+            padding: 12px 0;
+            border-top: 1px solid #f0f0f0;
+            border-bottom: 1px solid #f0f0f0;
         }
 
         .service-price {
-            font-size: 1.6em;
-            font-weight: 700;
+            font-size: 1.8em;
+            font-weight: 800;
             color: #000;
             margin-top: 25px;
-            padding-top: 25px;
-            border-top: 2px solid #f0f0f0;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .service-price::before {
+            content: 'Desde';
+            font-size: 0.5em;
+            color: #888;
+            font-weight: 400;
         }
 
         /* PROCESS STEPS */
@@ -541,25 +595,25 @@
                 <div class="why-card">
                     <div class="why-icon">🎯</div>
                     <h4>Visualización real</h4>
-                    <p>No imaginan el espacio. Lo recorren. Ven proporciones, luz, circulación exactas.</p>
+                    <p>El comprador no imagina. Entra al tour y recorre cada rincón. Ve proporciones exactas, iluminación, circulación. Sin sorpresas después.</p>
                 </div>
                 
                 <div class="why-card">
                     <div class="why-icon">⏱️</div>
                     <h4>Decisión sin presión</h4>
-                    <p>Desde su casa, en su tiempo. Sin vendedor encima. Decisión más racional.</p>
+                    <p>Desde su casa. En su tiempo. Sin vendedor encima. Sin urgencia artificial. La decisión es más racional y comprometida.</p>
                 </div>
                 
                 <div class="why-card">
                     <div class="why-icon">📱</div>
-                    <h4>Compartible en cualquier lado</h4>
-                    <p>Por WhatsApp, email, web. El comprador lleva el proyecto consigo siempre.</p>
+                    <h4>Compartible al instante</h4>
+                    <p>Un link por WhatsApp, email o Instagram. El comprador lo muestra a su familia. Lo revisa 10 veces. Lo vuelve a mirar antes de decidir.</p>
                 </div>
                 
                 <div class="why-card">
                     <div class="why-icon">📊</div>
-                    <h4>Ves quién mira qué</h4>
-                    <p>Analítica: cuánto vieron, dónde miraron, cuánto tiempo invirtieron.</p>
+                    <h4>Datos de verdad</h4>
+                    <p>Ves quién entró, cuándo, cuánto miraron, dónde se detuvieron. Sabés si le interesó o si pasó por ahí sin ver nada.</p>
                 </div>
             </div>
         </div>
@@ -577,25 +631,25 @@
                 <div class="service-card">
                     <div class="service-number">1</div>
                     <h3>Hosting Turbo</h3>
-                    <p>Traes renders finales. Nosotros los transformamos en tour 360° con hotspots interactivos.</p>
+                    <p>Traes renders finales. Nosotros los transformamos en tour 360° con hotspots interactivos y animaciones suaves.</p>
                     <div class="service-time">⏱️ Entrega: 3-5 días</div>
-                    <div class="service-price">Desde $50.000</div>
+                    <div class="service-price">$50.000</div>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-number">2</div>
                     <h3>Render + Hosting</h3>
-                    <p>Traes proyecto + referencias. Hacemos renders panorámicos 4K + tour completo.</p>
+                    <p>Traes proyecto + referencias. Hacemos renders panorámicos 4K + tour completo con hotspots + branding.</p>
                     <div class="service-time">⏱️ Entrega: 15-20 días</div>
-                    <div class="service-price">Desde $250.000</div>
+                    <div class="service-price">$250.000</div>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-number">3</div>
                     <h3>Full Service 3D</h3>
-                    <p>Proyecto cero. Modelo 3D fotorrealista + renders + tour 360° con analytics premium.</p>
+                    <p>Proyecto cero. Modelo 3D fotorrealista + renders + tour 360° + analytics + soporte técnico permanente.</p>
                     <div class="service-time">⏱️ Entrega: 30-45 días</div>
-                    <div class="service-price">Desde $600.000</div>
+                    <div class="service-price">$600.000</div>
                 </div>
             </div>
         </div>
@@ -640,7 +694,7 @@
     <div class="cta-final">
         <h2>¿Vos también querés que tus clientes decidan a los 20 segundos?</h2>
         <p>Hablemos 20 minutos sobre tu proyecto. Sin compromiso. Solo validamos si te conviene.</p>
-        <a href="https://calendly.com/arqmanghi/30min" class="hero-cta">AGENDAR DEMO</a>
+        <a href="https://calendly.com/emanuelManghi/demo-renders360" class="hero-cta">AGENDAR DEMO</a>
     </div>
 
     <!-- CONTACT -->
