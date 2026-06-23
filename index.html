@@ -43,10 +43,10 @@
 
   /* ===== LAYOUT ===== */
   .wrap{max-width:1180px;margin:0 auto;padding-left:clamp(20px,5vw,52px);padding-right:clamp(20px,5vw,52px);}
-  .section{padding-top:clamp(64px,9vw,120px);padding-bottom:clamp(64px,9vw,120px);}
+  .section{padding-top:clamp(44px,7vw,96px);padding-bottom:clamp(44px,7vw,96px);}
   .band{background:var(--cream-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
   .eyebrow{font-size:0.78rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
-  .head{max-width:720px;margin-bottom:clamp(40px,6vw,64px);}
+  .head{max-width:720px;margin-bottom:clamp(28px,4vw,48px);}
   .head h2{margin-bottom:18px;}
   .head p{font-size:1.12rem;line-height:1.65;color:var(--muted);}
   h1,h2,h3,h4{font-family:var(--serif);font-weight:500;letter-spacing:-0.02em;line-height:1.05;}
@@ -89,7 +89,7 @@
   .hero h1{font-size:clamp(3rem,8.5vw,6.2rem);line-height:0.97;color:var(--ink);margin-bottom:26px;}
   .hero h1 .deg{color:var(--accent);}
   .hero .subtitle{font-size:clamp(1.2rem,2.6vw,1.7rem);line-height:1.38;color:#3a342c;max-width:640px;margin-bottom:38px;}
-  .hero-actions{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-bottom:34px;}
+  .hero-actions{display:flex;flex-direction:column;gap:16px;align-items:center;margin-bottom:34px;max-width:280px;margin-left:auto;margin-right:auto;}
   .hero-desc{font-size:1.05rem;line-height:1.7;color:var(--muted);max-width:600px;}
 
   /* ===== VIDEO ===== */
@@ -121,6 +121,7 @@
 
   /* ===== WHY CARDS ===== */
   .grid-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(18px,2.4vw,28px);}
+  .grid-2x2{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,2vw,28px);}
   .why-card{padding:clamp(28px,3vw,40px);background:var(--card);border:1px solid var(--border);border-radius:18px;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;}
   .why-card:hover{transform:translateY(-6px);box-shadow:0 28px 50px -28px rgba(33,29,24,0.35);}
   .why-num{font-family:var(--serif);font-size:2rem;font-weight:500;color:var(--accent);margin-bottom:18px;line-height:1;}
@@ -148,7 +149,7 @@
   .tag{display:inline-block;align-self:flex-start;padding:6px 14px;background:var(--accent);color:#fff;border-radius:999px;font-size:0.72rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:20px;}
 
   /* ===== PROCESS ===== */
-  .process{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:clamp(20px,2.6vw,32px);}
+  .process{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:clamp(16px,2.4vw,32px);}
   .step{padding-top:18px;border-top:2px solid #d6cbb8;}
   .step-num{font-family:var(--serif);font-size:2.6rem;font-weight:500;color:var(--accent);line-height:1;margin-bottom:16px;}
   .step h4{font-family:var(--sans);font-size:1.15rem;font-weight:700;margin-bottom:10px;color:var(--ink);}
@@ -186,6 +187,21 @@
     .nav-links{display:none;}
     .burger{display:flex;}
   }
+  @media (max-width:560px){
+    .section{padding-top:clamp(40px,9vw,64px);padding-bottom:clamp(40px,9vw,64px);}
+    .head{margin-bottom:26px;}
+    header.hero{padding-top:clamp(40px,11vw,64px);padding-bottom:18px;}
+    .video-section{padding-top:22px;padding-bottom:clamp(40px,9vw,60px);}
+    .grid-2x2{gap:12px;}
+    .why-card{padding:20px 17px;}
+    .why-num{font-size:1.55rem;margin-bottom:10px;}
+    .why-card h4{font-size:1.04rem;margin-bottom:8px;}
+    .why-card p{font-size:0.9rem;line-height:1.55;}
+    .step{padding-top:14px;}
+    .step-num{font-size:2.1rem;margin-bottom:10px;}
+    .step h4{font-size:1.05rem;}
+    .ps-block{padding:24px 22px;}
+  }
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto;}
     .reveal{opacity:1;transform:none;transition:none;}
@@ -201,7 +217,7 @@
       <a href="#servicios">Servicios</a>
       <a href="#proceso">Proceso</a>
       <a href="#contacto">Contacto</a>
-      <a href="https://calendly.com/arqmanghi/30min" class="nav-cta">Agendar reunion gratis</a>
+      <a href="https://calendly.com/emanuelManghi/demo-renders360" class="nav-cta">Agendar demo</a>
     </div>
     <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -211,7 +227,7 @@
     <a href="#servicios">Servicios</a>
     <a href="#proceso">Proceso</a>
     <a href="#contacto">Contacto</a>
-    <a href="https://calendly.com/arqmanghi/30min" class="btn">Agendar reunion gratis</a>
+    <a href="https://calendly.com/emanuelManghi/demo-renders360" class="btn">Agendar demo</a>
   </div>
 
   <!-- HERO -->
@@ -220,24 +236,17 @@
     <div class="hero-inner">
       <div class="hero-eyebrow"><span class="pill"></span>Tours inmersivos 360° · Arquitectura</div>
       <h1>360<span class="deg">°</span> de tu proyecto.</h1>
-      <p class="subtitle">Tu cliente entra a la proyecto desde su casa. Ve todo. Decide al instante.</p>
+      <p class="subtitle">Tu cliente entra a la obra desde su casa. Ve todo. Decide al instante.</p>
       <div class="hero-actions">
-        <a href="https://calendly.com/arqmanghi/30min" class="btn-primary">Agendá reunion gratis</a>
-        <a href="https://arqmanghi.github.io/Casa_Martinez/" class="btn-ghost">Mirá un proyecto completo aquí→</a>
+        <a href="https://calendly.com/emanuelManghi/demo-renders360" class="btn-primary">Agendar demo</a>
+        <a href="https://arqmanghi.github.io/Casa_Martinez/" class="btn-ghost">Ver demo en vivo →</a>
       </div>
-      <p class="hero-desc">Transformamos renders en tours inmersivos que generan decisiones.</p>
+      <p class="hero-desc">Transformamos renders arquitectónicos en tours inmersivos que generan decisiones, reducen presenciales innecesarias y crean FOMO entre potenciales compradores.</p>
     </div>
   </header>
 
   <!-- VIDEO -->
   <section class="video-section" id="demo">
-    <div class="video-head reveal">
-      <div>
-        <div class="eyebrow">El recorrido</div>
-        <h2>Mirá como puede quedar tu proyecto aquí</h2>
-      </div>
-      <a href="https://arqmanghi.github.io/Casa_Martinez/" class="video-link" style="font-size: 1.2em; display: block; text-align: center; margin-top: 30px;">Abrir tour completo →</a>
-    </div>
     <div class="video-frame reveal">
       <div class="video-badge"><span class="live"></span>Tour 360° · En vivo</div>
       <video width="100%" autoplay muted loop playsinline>
@@ -253,7 +262,7 @@
         <div class="eyebrow">Por qué funciona</div>
         <h2>Por qué los compradores deciden en 360°</h2>
       </div>
-      <div class="grid-cards">
+      <div class="grid-2x2">
         <div class="why-card reveal">
           <div class="why-num">01</div>
           <h4>Visualización real</h4>
@@ -346,7 +355,7 @@
       <div class="cta-inner">
         <h2>¿Vos también querés que tus clientes decidan a los 20 segundos?</h2>
         <p>Hablemos 20 minutos sobre tu proyecto. Sin compromiso. Solo validamos si te conviene.</p>
-        <a href="https://calendly.com/arqmanghi/30min" class="btn-primary">Agendar reunion gratis</a>
+        <a href="https://calendly.com/emanuelManghi/demo-renders360" class="btn-primary">Agendar demo</a>
       </div>
     </div>
   </section>
