@@ -42,7 +42,7 @@
   ul{list-style:none;}
 
   /* ===== LAYOUT ===== */
-  .wrap{max-width:1180px;margin:0 auto;padding-left:clamp(20px,5vw,52px);padding-right:clamp(20px,5vw,52px);}
+  .wrap{max-width:1180px;margin:0 auto;padding-left:clamp(20px,5vw,52px);padding-right:clamp(20px,5vw,52px);text-align:center;}
   .section{padding-top:clamp(44px,7vw,96px);padding-bottom:clamp(44px,7vw,96px);}
   .band{background:var(--cream-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
   .eyebrow{font-size:0.78rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
@@ -120,7 +120,7 @@
   .solution .mark{background:#bcd5bb;color:#2f5440;}
 
   /* ===== WHY CARDS ===== */
-  .grid-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(18px,2.4vw,28px);}
+  .grid-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(18px,2.4vw,28px);margin-left:auto;margin-right:auto;max-width:900px;}
   .grid-2x2{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,28px);}
   .why-card{padding:clamp(28px,3vw,40px);background:var(--card);border:1px solid var(--border);border-radius:18px;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;text-align:center;}
   .why-card:hover{transform:translateY(-6px);box-shadow:0 28px 50px -28px rgba(33,29,24,0.35);}
@@ -129,7 +129,7 @@
   .why-card p{font-size:1rem;line-height:1.65;color:var(--muted);}
 
   /* ===== SERVICES ===== */
-  .service-card{display:flex;flex-direction:column;padding:clamp(30px,3.2vw,42px);background:var(--card);border:1px solid var(--border);border-radius:20px;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease,border-color .4s ease;}
+  .service-card{display:flex;flex-direction:column;padding:clamp(30px,3.2vw,42px);background:var(--card);border:1px solid var(--border);border-radius:20px;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease,border-color .4s ease;text-align:center;align-items:center;}
   .service-card:hover{transform:translateY(-8px);box-shadow:0 32px 56px -30px rgba(33,29,24,0.4);border-color:var(--accent);}
   .service-num{font-family:var(--serif);font-size:3.4rem;font-weight:500;color:#ded3c2;line-height:1;margin-bottom:22px;}
   .service-card h3{font-weight:600;font-size:1.5rem;color:var(--ink);margin-bottom:14px;}
@@ -156,7 +156,7 @@
   .step p{font-size:0.98rem;line-height:1.6;color:var(--muted);}
 
   /* ===== CTA FINAL ===== */
-  .cta-final{position:relative;overflow:hidden;background:linear-gradient(135deg,#211d18 0%,#332c24 100%);color:#fff;border-radius:26px;padding:clamp(48px,7vw,90px) clamp(28px,5vw,72px);text-align:center;}
+  .cta-final{position:relative;overflow:hidden;background:linear-gradient(135deg,#211d18 0%,#332c24 100%);color:#fff;border-radius:26px;padding:clamp(48px,7vw,90px) clamp(28px,5vw,72px);text-align:center;margin-left:auto;margin-right:auto;max-width:900px;}
   .cta-glow{position:absolute;top:-30%;right:-10%;width:420px;height:420px;background:radial-gradient(circle,rgba(189,91,56,0.28),transparent 65%);pointer-events:none;}
   .cta-inner{position:relative;z-index:1;max-width:760px;margin:0 auto;}
   .cta-final h2{font-size:clamp(2rem,4.6vw,3.2rem);line-height:1.1;color:#fff;margin-bottom:22px;}
