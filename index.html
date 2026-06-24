@@ -46,7 +46,7 @@
   .section{padding-top:clamp(44px,7vw,96px);padding-bottom:clamp(44px,7vw,96px);}
   .band{background:var(--cream-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
   .eyebrow{font-size:0.78rem;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:14px;}
-  .head{max-width:720px;margin-bottom:clamp(28px,4vw,48px);}
+  .head{max-width:720px;margin-bottom:clamp(28px,4vw,48px);margin-left:auto;margin-right:auto;text-align:center;}
   .head h2{margin-bottom:18px;}
   .head p{font-size:1.12rem;line-height:1.65;color:var(--muted);}
   h1,h2,h3,h4{font-family:var(--serif);font-weight:500;letter-spacing:-0.02em;line-height:1.05;}
@@ -121,8 +121,8 @@
 
   /* ===== WHY CARDS ===== */
   .grid-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(18px,2.4vw,28px);}
-  .grid-2x2{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,2vw,28px);}
-  .why-card{padding:clamp(28px,3vw,40px);background:var(--card);border:1px solid var(--border);border-radius:18px;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;}
+  .grid-2x2{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,28px);}
+  .why-card{padding:clamp(28px,3vw,40px);background:var(--card);border:1px solid var(--border);border-radius:18px;transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s ease;text-align:center;}
   .why-card:hover{transform:translateY(-6px);box-shadow:0 28px 50px -28px rgba(33,29,24,0.35);}
   .why-num{font-family:var(--serif);font-size:2rem;font-weight:500;color:var(--accent);margin-bottom:18px;line-height:1;}
   .why-card h4{font-family:var(--sans);font-size:1.22rem;font-weight:700;margin-bottom:12px;color:var(--ink);}
@@ -192,7 +192,7 @@
     .head{margin-bottom:26px;}
     header.hero{padding-top:clamp(40px,11vw,64px);padding-bottom:18px;}
     .video-section{padding-top:22px;padding-bottom:clamp(40px,9vw,60px);}
-    .grid-2x2{gap:12px;}
+    .grid-2x2{grid-template-columns:1fr;gap:12px;}
     .why-card{padding:20px 17px;}
     .why-num{font-size:1.55rem;margin-bottom:10px;}
     .why-card h4{font-size:1.04rem;margin-bottom:8px;}
@@ -217,7 +217,7 @@
       <a href="#servicios">Servicios</a>
       <a href="#proceso">Proceso</a>
       <a href="#contacto">Contacto</a>
-      <a href="https://calendly.com/arqmanghi/30min" class="nav-cta">Agendar reunión gratis</a>
+      <a href="https://calendly.com/emanuelManghi/demo-renders360" class="nav-cta">Agendar demo</a>
     </div>
     <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -227,7 +227,7 @@
     <a href="#servicios">Servicios</a>
     <a href="#proceso">Proceso</a>
     <a href="#contacto">Contacto</a>
-    <a href="https://calendly.com/arqmanghi/30min" class="btn">Agendar reunión gratis</a>
+    <a href="https://calendly.com/emanuelManghi/demo-renders360" class="btn">Agendar demo</a>
   </div>
 
   <!-- HERO -->
@@ -236,12 +236,12 @@
     <div class="hero-inner">
       <div class="hero-eyebrow"><span class="pill"></span>Tours inmersivos 360° · Arquitectura</div>
       <h1>360<span class="deg">°</span> de tu proyecto.</h1>
-      <p class="subtitle">Tu cliente entra al proyecto desde su casa, ve todo y decide al instante.</p>
+      <p class="subtitle">Tu cliente entra a la obra desde su casa. Ve todo. Decide al instante.</p>
       <div class="hero-actions">
-        <a href="https://calendly.com/arqmanghi/30min" class="btn-primary">Agendar reunión gratis</a>
-        <a href="https://arqmanghi.github.io/Casa_Martinez/" class="btn-ghost">Ver proyecto completo →</a>
+        <a href="https://calendly.com/emanuelManghi/demo-renders360" class="btn-primary">Agendar demo</a>
+        <a href="https://arqmanghi.github.io/Casa_Martinez/" class="btn-ghost">Ver demo en vivo →</a>
       </div>
-      <p class="hero-desc">Transformamos renders en tours virtuales que generan decisiones.</p>
+      <p class="hero-desc">Transformamos renders arquitectónicos en tours inmersivos que generan decisiones, reducen presenciales innecesarias y crean FOMO entre potenciales compradores.</p>
     </div>
   </header>
 
@@ -275,10 +275,6 @@
           <div class="why-num">03</div>
           <h4>Compartible al instante</h4>
         </div>
-        <div class="why-card reveal">
-          <div class="why-num">04</div>
-          <h4>Datos de verdad con Google Analytics</h4>
-        </div>
       </div>
     </div>
   </section>
@@ -302,15 +298,15 @@
         <div class="tag">Más elegido</div>
         <div class="service-num">2</div>
         <h3>Render + Hosting</h3>
-        <p>Traés modelo 3D + referencias. Hacemos renders panorámicos 4K + tour completo con hotspots + branding.</p>
-        <div class="service-time">Entrega: 7–15 días</div>
+        <p>Traés proyecto + referencias. Hacemos renders panorámicos 4K + tour completo con hotspots + branding.</p>
+        <div class="service-time">Entrega: 15–20 días</div>
         <div class="service-price"><span class="from">Desde</span><span class="amount">$250.000</span></div>
       </div>
       <div class="service-card reveal">
         <div class="service-num">3</div>
         <h3>Full Service 3D</h3>
-        <p>Proyecto desde cero. Modelado 3D + renders + tour 360° + analytics + soporte técnico permanente.</p>
-        <div class="service-time">Entrega: 15–20 días</div>
+        <p>Proyecto cero. Modelo 3D fotorrealista + renders + tour 360° + analytics + soporte técnico permanente.</p>
+        <div class="service-time">Entrega: 30–45 días</div>
         <div class="service-price"><span class="from">Desde</span><span class="amount">$600.000</span></div>
       </div>
     </div>
@@ -337,7 +333,7 @@
         <div class="step reveal">
           <div class="step-num">03</div>
           <h4>Alojamos</h4>
-          <p>Armamos nuestro dominio. Listo para distribuir.</p>
+          <p>Tu dominio o el nuestro. Listo para distribuir.</p>
         </div>
         <div class="step reveal">
           <div class="step-num">04</div>
@@ -355,7 +351,7 @@
       <div class="cta-inner">
         <h2>¿Vos también querés que tus clientes decidan a los 20 segundos?</h2>
         <p>Hablemos 20 minutos sobre tu proyecto. Sin compromiso. Solo validamos si te conviene.</p>
-        <a href="https://calendly.com/arqmanghi/30min" class="btn-primary">Agendar reunión gratis</a>
+        <a href="https://calendly.com/emanuelManghi/demo-renders360" class="btn-primary">Agendar demo</a>
       </div>
     </div>
   </section>
@@ -376,7 +372,7 @@
   <footer>
     <div class="foot-logo">Renders360<span class="dot">°</span></div>
     <p class="tagline">Transformamos renders en experiencias que venden.</p>
-    <p class="credit">Arq. Emanuel Manghi · Buenos Aires</p>
+    <p class="credit">Arq. Emanuel Manghi · ARQ.MANGHI Studio · Buenos Aires</p>
   </footer>
 
   <script>
